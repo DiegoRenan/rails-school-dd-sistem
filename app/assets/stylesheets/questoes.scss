@@ -1,0 +1,59 @@
+// Place all the styles related to the Questoes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.card-questao{
+    margin: 5px;
+    padding: 5px;
+    min-height:300px;
+}
+
+.btn-proximo{
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+
+}
+
+.btn-answer{
+    position: relative;
+    bottom: 0px;
+    margin: 5px;
+}
+
+
+
+/*  QUESTIONARIO*/
+.simulado 
+{
+    li{
+        cursor: pointer;
+        
+    }
+    
+    .clicked{
+        font-weight: bold;
+        font-size: 1em;
+        font-style: italic;
+        p{
+            font-weight: bold;
+        }
+    }
+    
+    .certa{
+        color: green;
+    }
+    
+    .errada{
+        color: red;
+    }
+}
+
+.image-answer{
+    position: absolute;
+    z-index: 99;
+    top: 5px;
+    right: 5px;
+    width: 50px;
+    height: 50px;
+}

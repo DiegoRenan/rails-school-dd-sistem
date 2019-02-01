@@ -1,0 +1,26 @@
+<% provide(:title, "Concursos") %>
+            <%if logged_in? and current_user_tipo == "administrador"%>
+                <%= link_to 'Novo Concurso', new_noticia_path%><br />
+            <%end%>
+        
+            <% @noticias.each do |noticia| %>
+                    <div class="card mdl-card mdl-cell--4-col mdl-cel--4-col-tablet mdl-shadow--2dp">
+                            <div class="card-block">
+                                    <h5 class="card-title"><%= link_to noticia.titulo, noticia_path(noticia)%></h5>
+                                    <div class="news_date"><%= noticia.created_at.strftime("%d/%m/%Y")%></div>
+                                    <div class="card-text"><%= noticia.resume%></div>
+
+                                    <%if logged_in? and current_user_tipo == "administrador"%>
+                                            <%= link_to 'Editar', edit_noticia_path(noticia)%>
+                                            <%= link_to 'Deletar', noticia_path(noticia),
+                                            method: :delete,
+                                            data: { confirm: 'Deseja deletar a alternativa?' } %>
+                                    <%end%>
+                            </div>
+                            <div style="padding-top: 30px">
+                                        <%= social_share_button_tag(noticia.titulo, :url => "http://www.ddconcursos.com.br"+noticia_path(noticia)) %>
+                                    </div>
+                                                        
+                                    <%= link_to 'Saiba mais', noticia_path(noticia), :class=>"btn btn-default btn-sm"%>
+                    </div>
+            <% end %>

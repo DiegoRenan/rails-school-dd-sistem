@@ -1,0 +1,38 @@
+[ 2017-07-13 10:48:09.2781 19233/7f93effc3740 age/Wat/WatchdogMain.cpp:1283 ]: Starting Passenger watchdog...
+[ 2017-07-13 10:48:09.2814 19236/7f35053b3740 age/Cor/CoreMain.cpp:1080 ]: Starting Passenger core...
+[ 2017-07-13 10:48:09.2815 19236/7f35053b3740 age/Cor/CoreMain.cpp:248 ]: Passenger core running in multi-application mode.
+[ 2017-07-13 10:48:09.2859 19236/7f35053b3740 age/Cor/CoreMain.cpp:830 ]: Passenger core online, PID 19236
+[ 2017-07-13 10:48:09.2897 19246/7ff096023740 age/Ust/UstRouterMain.cpp:537 ]: Starting Passenger UstRouter...
+[ 2017-07-13 10:48:09.2901 19246/7ff096023740 age/Ust/UstRouterMain.cpp:350 ]: Passenger UstRouter online, PID 19246
+App 19282 stdout: 
+App 19314 stdout: 
+[ 2017-07-13 10:48:18.0192 19236/7f3504088700 age/Cor/SecurityUpdateChecker.h:356 ]: Security update check: no update found (next check in 24 hours)
+App 19404 stdout: 
+App 19411 stdout: 
+
+[ 2017-07-13 10:51:31.6433 19236/7f34ff1d7700 age/Cor/CoreMain.cpp:588 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2017-07-13 10:51:31.6433 19236/7f35053b3740 age/Cor/CoreMain.cpp:999 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2017-07-13 10:51:31.6433 19236/7f35053b3740 age/Cor/CoreMain.cpp:917 ]: Checking whether to disconnect long-running connections for process 19314, application /home/diego/MEGAsync/ddconcursos/public (development)
+
+[ 2017-07-13 10:51:31.6433 19246/7ff08ffff700 age/Ust/UstRouterMain.cpp:430 ]: Signal received. Gracefully shutting down... (send signal 2 more time(s) to force shutdown)
+[ 2017-07-13 10:51:31.6434 19236/7f35053b3740 age/Cor/CoreMain.cpp:917 ]: Checking whether to disconnect long-running connections for process 19404, application /home/diego/MEGAsync/ddconcursos/public (development)
+[ 2017-07-13 10:51:31.6434 19236/7f35053b3740 age/Cor/CoreMain.cpp:917 ]: Checking whether to disconnect long-running connections for process 19411, application /home/diego/MEGAsync/ddconcursos/public (development)
+[ 2017-07-13 10:51:31.6434 19246/7ff096023740 age/Ust/UstRouterMain.cpp:500 ]: Received command to shutdown gracefully. Waiting until all clients have disconnected...
+[ 2017-07-13 10:51:31.6434 19236/7f34ff1d7700 Ser/Server.h:862 ]: [ServerThr.1] Freed 0 spare client objects
+[ 2017-07-13 10:51:31.6434 19236/7f34fe955700 Ser/Server.h:862 ]: [ServerThr.2] Freed 0 spare client objects
+[ 2017-07-13 10:51:31.6434 19246/7ff08f7fe700 Ser/Server.h:862 ]: [UstRouterApiServer] Freed 0 spare client objects
+[ 2017-07-13 10:51:31.6435 19236/7f34ff1d7700 Ser/Server.h:490 ]: [ServerThr.1] Shutdown finished
+[ 2017-07-13 10:51:31.6435 19246/7ff08f7fe700 Ser/Server.h:490 ]: [UstRouterApiServer] Shutdown finished
+[ 2017-07-13 10:51:31.6435 19236/7f34fe955700 Ser/Server.h:490 ]: [ServerThr.2] Shutdown finished
+[ 2017-07-13 10:51:31.6435 19236/7f34fd851700 Ser/Server.h:862 ]: [ServerThr.4] Freed 0 spare client objects
+[ 2017-07-13 10:51:31.6435 19236/7f34fd851700 Ser/Server.h:490 ]: [ServerThr.4] Shutdown finished
+[ 2017-07-13 10:51:31.6435 19236/7f34fe0d3700 Ser/Server.h:862 ]: [ServerThr.3] Freed 0 spare client objects
+[ 2017-07-13 10:51:31.6435 19236/7f34fe0d3700 Ser/Server.h:490 ]: [ServerThr.3] Shutdown finished
+[ 2017-07-13 10:51:31.6435 19246/7ff08ffff700 Ser/Server.h:490 ]: [UstRouter] Shutdown finished
+[ 2017-07-13 10:51:31.6437 19236/7f34fcfcf700 Ser/Server.h:862 ]: [ApiServer] Freed 0 spare client objects
+[ 2017-07-13 10:51:31.6437 19236/7f34fcfcf700 Ser/Server.h:490 ]: [ApiServer] Shutdown finished
+[ 2017-07-13 10:51:31.6437 19236/7f35053b3740 age/Cor/CoreMain.cpp:917 ]: Checking whether to disconnect long-running connections for process 19314, application /home/diego/MEGAsync/ddconcursos/public (development)
+[ 2017-07-13 10:51:31.6438 19236/7f35053b3740 age/Cor/CoreMain.cpp:917 ]: Checking whether to disconnect long-running connections for process 19404, application /home/diego/MEGAsync/ddconcursos/public (development)
+[ 2017-07-13 10:51:31.6438 19236/7f35053b3740 age/Cor/CoreMain.cpp:917 ]: Checking whether to disconnect long-running connections for process 19411, application /home/diego/MEGAsync/ddconcursos/public (development)
+[ 2017-07-13 10:51:31.6439 19246/7ff096023740 age/Ust/UstRouterMain.cpp:531 ]: Passenger UstRouter shutdown finished
+[ 2017-07-13 10:51:31.9026 19236/7f35053b3740 age/Cor/CoreMain.cpp:1065 ]: Passenger core shutdown finished

@@ -1,0 +1,30 @@
+<script>
+ $('.summernote').summernote();
+</script>
+<div class="panel panel-default">
+    
+    <div class="panel-body">
+    
+        <%= form_for([@questao, @questao.alternativas.build]) do |f| %>
+            <p>
+                <%= f.label :alternativa %><sup style="color:red">*</sup><br>
+                <%= f.text_area :alternativa, :as => :summernote, :class=> "summernote form-control" %>
+            </p>
+            
+            <p>
+                    <table class="table">
+                            <tr>	
+                                    <td><%= f.radio_button(:qualidade, "false", :checked => true, :class => "form-check-input") %></td><td> <%= f.label(:false, "Falso") %></td>
+                                    <td><%= f.radio_button(:qualidade, "true", :class => "form-check-input") %></td><td> <%= f.label(:true, "Verdadeiro", :class => "form-check-label") %></td>
+                            </tr>
+                    </table>
+            </p>
+            
+            <p>
+                <%= f.submit 'salvar', class: "btn btn-default"%>
+            </p>
+        <% end %>
+        
+    </div>
+</div>
+<%= link_to "Voltar", questao_path(@questao)%>

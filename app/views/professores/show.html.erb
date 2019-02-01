@@ -1,0 +1,21 @@
+<% provide(:title, "Professor") %>
+        <h4>
+            <%= @professor.nome %>
+        </h4>
+
+        <p>
+            <strong>Formação:</strong>
+            <%= @professor.formacao %>
+        </p>
+
+        <p>
+            <strong>Curriculo:</strong>
+            <%= raw(@professor.curriculo) %>
+        </p>
+        
+        <% if current_user_tipo == "administrador" %>
+            <%= link_to 'Editar', edit_professor_path(@professor)%>
+            <%= link_to 'Deletar', professor_path(@professor),
+                                        method: :delete,
+                                        data: { confirm: 'Deseja deletar a alternativa?' } %>
+        <% end %>

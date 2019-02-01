@@ -1,0 +1,47 @@
+<% provide(:title, "Home") %>
+
+<div class="mdl-grid" style="padding: 5px 0px 50px 0px;">				
+			
+			<div class=" news mdl-cell mdl-cell--8-col mdl-cel--10-col-tablet" style="border-top: 1px solid #ccc" >
+				<h3><span class="badge badge-default">Concursos</span></h3>
+				<!--news-->
+                                    <% if !@noticias_last.nil?  %> 
+					<% @noticias_last.each do |noticia|%>
+						<div class="card mdl-card mdl-cell--4-col mdl-cel--4-col-tablet mdl-shadow--2dp">
+                                                    <div class="card-block">
+							<h5 class="card-title"><%= link_to noticia.titulo, noticia_path(noticia), :class => "noticias"%></h5>
+							<br/><div class="news_date"><%= noticia.created_at.strftime("%d/%m/%Y")%></div>
+                                                        <div style="padding-top: 50px">
+                                                            <div style="font-size: xx-small">compartilhe:</div>    
+                                                            <%= social_share_button_tag(noticia.titulo, :url => "http://www.ddconcursos.com.br"+noticia_path(noticia), :image => "http://www.ddconcursos.com.br/app"+image_path("logo.jpg"), :title => noticia.titulo ) %>
+                                                        </div>
+							
+                                                    </div>
+                                                    <%= link_to 'Ler', noticia_path(noticia), :class => ' btn btn-default btn-sm'%>
+						</div>
+					<% end %>
+                                    <% end %>
+                                <%= link_to 'Mais notícias', noticias_path, :class => "link"%>
+			</div>
+				<!--Cursos-->
+			<div class="news mdl-cell mdl-cell--4-col mdl-cel--4-col-tablet " style="border-top: 1px solid #ccc">
+				<h3><span class="badge badge-default">Cursos</span></h3>
+				<div class="curso-destaque">
+					
+						<div class="card mdl-card mdl-cell--12-col mdl-cel--12-col-tablet mdl-shadow--2dp">
+							<%= image_tag 'pm.jpg', :class => "card-img-top" %>
+							<div class="card-block">
+								<h5 class="card-title">Carreira Policial</h5>
+								<p class="card-text">Para concursos nas carreiras policiais, PC-MT, PM-MT, PRF e PF</p>
+								<div class="float-left">
+                                                                    <%= social_share_button_tag("Carreira Policial", :url => "www.ddconcursos.com.br"+cursos_path) %>
+                                                                </div>
+								<a class="float-right" href="#" class="btn btn-primary" >Saiba mais</a>
+							</div>
+						</div>
+
+				</div>
+				<%= link_to 'Mais cursos', cursos_path, :class => "link"%>
+			</div>
+			
+</div>

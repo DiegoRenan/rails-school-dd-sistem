@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<title><%= full_title(yield(:title)) %></title>
+	<%= csrf_meta_tags %>
+	
+	<%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+    <%= csrf_meta_tags %>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	<%= javascript_include_tag 'touchslider' %>
+	<%= render 'layouts/shim' %>
+    <%= stylesheet_link_tag 'animate'%> 
+
+  </head>
+
+  <body>
+            <div class="container-fluid">
+		<%= render 'layouts/header' %>
+            </div>
+            
+		<div class="moldura">
+			
+                    <% unless params[:action] == 'home' %>
+                        <div class="title container-fluid">
+                            <center><h1 style="color:#fff;z-index: 1px"><%= yield(:title) %></h1></center>
+                        </div>
+                    <% end %>
+		
+                    <% if params[:action] == 'home' %>
+                         <%= render 'layouts/banner' %>
+                         <%= render 'layouts/iconshome'%>
+                    <% end %>
+                    
+                    <div class="container">
+                        
+                        <div class="row">
+                            <nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">  
+                                <%= render 'layouts/sidemenu' %>
+                            </nav>
+                            
+                            <main class="col-sm-9 offset-sm-3 col-md-10 offset-md-2 pt-3">
+                                <%= yield %>
+                            </main>
+                        </div>
+                        
+                    </div>
+                        
+                    <div class="container-fluid">
+                        <%= render 'layouts/footer' %>
+                    </div>
+		</div>
+		
+  </body>
+</html>

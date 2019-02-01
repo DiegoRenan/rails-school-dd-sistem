@@ -1,0 +1,44 @@
+<script>
+ $('.summernote').summernote();
+</script>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+
+        <%= form_for(@professor) do |f| %>
+                
+        <% if @professor.errors.any? %>
+            <div id="error_explanation">
+            <h2>
+                <%= pluralize(@professor.errors.count, "error") %> professor impedida de ser salva:
+            </h2>
+            <ul>
+                <% @professor.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+                <% end %>
+            </ul>
+            </div>
+        <% end %>
+        
+        <p>
+            <%= f.label :nome %><sup style="color:red">*</sup><br>
+            <%= f.text_field :nome, class: 'form-control' %>
+        </p>
+        
+        <p>
+            <%= f.label :formacao %><sup style="color:red">*</sup><br>
+            <%= f.text_field :formacao, class: 'form-control' %>
+        </p>
+        
+        <p>
+            <%= f.label :curriculo %><sup style="color:red">*</sup><br>
+            <%= f.text_area :curriculo, :as => :summernote , :class => "summernote"%>
+        </p>
+            
+        <p>
+            <%= f.submit "Salvar", class: "btn btn-default" %>
+        </p>
+        <% end %>
+        
+    </div>
+</div>

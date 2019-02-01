@@ -1,0 +1,35 @@
+<% provide(:title, "Banco de Questões") %>
+
+<% if current_user_tipo == "administrador" %>
+    <%= link_to 'Novo Banco de Questões', new_questionario_path %>
+<% end %>
+				
+<% if !@questionarios.empty?%>
+		<div class="panel panel-default">
+
+                    <div class="panel-body">
+			<table class="table">
+                            <thead>
+				<tr>
+                                    <th>Banco</th>
+					<th></th>
+					<th></th>
+				</tr>
+                            </thead>
+								
+                            <% @questionarios.each do |questionario|%>
+                                <tr>
+                                    <td><%= link_to questionario.titulo, questionario_path(questionario)%></td>
+                                    <% if current_user_tipo == "administrador" %>
+                                        <td><%= link_to 'Editar', edit_questionario_path(questionario) %></td>
+                                        <td>
+                                            <%= link_to 'Deletar', questionario_path(questionario),
+                                            method: :delete, data: { confirm: 'Deseja deletar o banco de questões?' } %>
+                                        </td>
+                                    <% end %>
+                                </tr>
+                            <%end%>	
+                        </table>	
+                    </div>
+		</div>
+<% end %>

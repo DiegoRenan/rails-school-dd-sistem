@@ -1,0 +1,13 @@
+
+		<div class="row side-menu-left">
+				<nav class="navbar navbar-default sidebar" role="navigation">
+					<div class="container-fluid">
+							<ul class="nav navbar-nav">
+								<li><%= link_to "Home", user_path(@user)%></li>
+								<% if @user[:tipo] == "administrador" %>
+									<li><%= link_to "Administrador", controlpanel_path%></li>
+								<% end %>
+							</ul>
+				  </div>      
+				</div>
+		</div>

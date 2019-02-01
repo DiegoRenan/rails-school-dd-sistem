@@ -1,0 +1,67 @@
+// Place all the styles related to the StaticPages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.noticias{
+	float: left;
+	a{
+		color: inherit;
+		background-color: transparent;
+		text-decoration: none;
+	}
+	
+}
+
+.page-content{
+    clear: both;
+}
+.card-home{
+    min-height: 100px;
+    background-color: #607D8B;
+    color: #fff;
+}
+#card-home-cursos{
+    
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+#card-home-concursos{
+
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+#card-home-video-aulas{
+
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+#card-home-questoes{
+
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: top;
+}
+
+.formContato{
+	margin: 5px;
+	margin: 0 auto;
+}
+
+nav.sidebar, .main{
+    -webkit-transition: margin 200ms ease-out;
+      -moz-transition: margin 200ms ease-out;
+      -o-transition: margin 200ms ease-out;
+      transition: margin 200ms ease-out;
+ }
+
+ main{
+    padding: 10px 10px 0 10px;
+    float: right;
+ }
+ 
+

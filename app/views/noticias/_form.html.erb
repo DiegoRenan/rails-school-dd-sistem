@@ -1,0 +1,71 @@
+<script>
+ $('.summernote').summernote();
+</script>
+
+
+<%= form_for(@noticia) do |f| %>
+  
+  <% if @noticia.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+        <% @noticia.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <p>
+    <%= f.label :titulo %><sup style="color:red">*</sup><br/>
+    <%= f.text_field :titulo, class: 'form-control' %>
+  </p>
+ 
+  <p>
+    <%= f.label :texto %><sup style="color:red">*</sup><br>
+    <%= f.text_area :texto, :as => :summernote , :class => "summernote" %>
+  </p>
+  
+  <p>
+    <%= f.label :resume %><sup style="color:red">*</sup><br>
+    <%= f.text_field :resume, class: 'form-control' %>
+  </p>
+  
+  <p>
+    <%= f.label :uf %><sup style="color:red">*</sup><br>
+    <%= f.text_field :uf, class: 'form-control' %>
+  </p>
+  
+  <p>
+    <%= f.label :vagas %><br>
+    <%= f.text_field :vaga, class: 'form-control' %>
+  </p>
+  
+  <p>
+    <%= f.label :cargo %><br>
+    <%= f.text_field :cargo, class: 'form-control' %>
+  </p>
+  
+  <p>
+    <%= f.label :salario %><br>
+    <%= f.text_field :salario, class: 'form-control' %>
+  </p>
+  
+  <p>
+    <%= f.label :banca %><br>
+    <%= f.text_field :banca, class: 'form-control' %>
+  </p>
+  
+  <p>
+    <%= f.label :edital %><br>
+    <%= f.text_field :edital, class: 'form-control' %>
+  </p>
+ 
+  <p>
+    <%= f.label :inscricao %><br>
+    <%= f.text_field :inscricao, class: 'form-control' %>
+  </p>
+  
+  <p>
+    <%= f.submit 'Salvar', class: "btn btn-default"%>
+  </p>
+<% end %>

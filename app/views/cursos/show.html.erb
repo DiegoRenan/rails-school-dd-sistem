@@ -1,0 +1,76 @@
+<% provide(:title, "Cursos") %>
+        
+        <p>
+            <h3><%= @curso.nome %></h3>
+        </p>
+
+        <p>
+            <%= raw(@curso.descricao) %>
+        </p>
+
+        <% if !@curso.modulos.nil? %>
+                <h4>Modulos</h4>
+                <ul>
+                <% @curso.modulos.each do |modulo| %>
+                    <li><%= modulo.nome %>
+                            <% if current_user_tipo == "administrador" %>
+                                <%= link_to 'Deletar', [modulo.curso, modulo],
+                                                        method: :delete,
+                                                        data: { confirm: 'Deseja deletar?' } %>
+                            <% end %>
+                        </li>
+                <% end %>
+                </ul>
+        <% end %>
+        
+        <% if current_user_tipo == "administrador" %>
+            <h4>Adicionar modulo:</h4>
+            <%= form_for([@curso, @curso.modulos.build]) do |f| %>
+                <p>
+                    <%= f.label :nome %><br>
+                    <%= f.text_field :nome, :class => 'form-control' %>
+                </p>
+                <p>
+                    <%= f.submit 'Salvar', :class => 'btn btn-default' %>
+                </p>
+            <% end %>
+        <% end %>
+
+    
+        <% if !@curso.carreiras.nil? %>
+            <h4>Carreiras</h4>
+            <ul>
+                <% @curso.carreiras.each do |carreira| %>
+                        <li><%= carreira.nome %>
+                            <% if current_user_tipo == "administrador" %>
+                                <%= link_to 'Deletar', [carreira.curso, carreira],
+                                                method: :delete,
+                                                data: { confirm: 'Deseja deletar?' } %>
+                            <% end %>
+                        </li>
+                <% end %>
+            </ul>
+        <% end %>
+
+
+        <p>
+        <strong>Duração:</strong>
+        <%= @curso.duracao %>
+        </p>
+
+
+        <% if current_user_tipo == "administrador" %>
+            <h4>Adicionar Carreiras:</h4>
+            <%= form_for([@curso, @curso.carreiras.build]) do |f| %>
+                <p>
+                    <%= f.label :nome %><br>
+                    <%= f.text_field :nome, :class => 'form-control' %>
+                </p>
+                <p>
+                    <%= f.submit 'Salvar', :class => 'btn btn-default' %>
+                </p>
+            <% end %>
+        <% end %>
+
+        <%= link_to 'Voltar', cursos_path %>
+    

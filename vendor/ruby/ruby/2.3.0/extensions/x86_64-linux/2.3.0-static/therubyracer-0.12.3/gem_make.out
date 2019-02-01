@@ -1,0 +1,47 @@
+current directory: /home/diego/MEGAsync/ddconcursos/vendor/ruby/ruby/2.3.0/gems/therubyracer-0.12.3/ext/v8
+/usr/local/bin/ruby -r ./siteconf20170726-25571-utiatu.rb extconf.rb
+checking for main() in -lpthread... yes
+creating Makefile
+
+To see why this extension failed to compile, please check the mkmf.log which can be found here:
+
+  /home/diego/MEGAsync/ddconcursos/vendor/ruby/ruby/2.3.0/extensions/x86_64-linux/2.3.0-static/therubyracer-0.12.3/mkmf.log
+
+current directory: /home/diego/MEGAsync/ddconcursos/vendor/ruby/ruby/2.3.0/gems/therubyracer-0.12.3/ext/v8
+make "DESTDIR=" clean
+
+current directory: /home/diego/MEGAsync/ddconcursos/vendor/ruby/ruby/2.3.0/gems/therubyracer-0.12.3/ext/v8
+make "DESTDIR="
+compiling heap.cc
+compiling trycatch.cc
+compiling exception.cc
+compiling constants.cc
+compiling stack.cc
+compiling signature.cc
+compiling locker.cc
+compiling value.cc
+compiling function.cc
+compiling object.cc
+compiling gc.cc
+compiling v8.cc
+compiling script.cc
+compiling constraints.cc
+compiling array.cc
+compiling init.cc
+compiling primitive.cc
+compiling invocation.cc
+compiling handles.cc
+compiling template.cc
+compiling accessor.cc
+compiling rr.cc
+compiling external.cc
+compiling message.cc
+compiling backref.cc
+compiling date.cc
+compiling context.cc
+compiling string.cc
+linking shared-object v8/init.so
+
+current directory: /home/diego/MEGAsync/ddconcursos/vendor/ruby/ruby/2.3.0/gems/therubyracer-0.12.3/ext/v8
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 init.so ./.gem.20170726-25571-1gx0q6o/v8

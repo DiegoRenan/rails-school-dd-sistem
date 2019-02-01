@@ -1,0 +1,38 @@
+<% provide(:title, "Categoria") %>
+	<% if logged_in? %>
+		<% if current_user_tipo == "administrador" %>
+			
+				<%= link_to 'Nova Categoria', new_categoria_path %>				
+				<% if !@categorias.empty?%>
+				
+					<div class="panel panel-default">
+						
+						<div class="panel-body">
+							<table class="table">
+								<thead>
+									<tr>
+										<th>Categoria</th>
+										<th></th>
+										<th></th>
+									</tr>
+								</thead>
+								
+								<% @categorias.each do |categoria|%>
+									<tr>
+										<td><%= link_to categoria.categoria, categoria_path(categoria)%></td>
+										<td><%= link_to 'Editar', edit_categoria_path(categoria) %></td>
+										<td><%= link_to 'Deletar', categoria_path(categoria),
+												method: :delete,
+												data: { confirm: 'Deseja deletar o banco de questões?' } %>
+										</td>
+									</tr>
+								<%end%>	
+							</table>	
+						</div>
+						
+					</div>
+					
+				<% end %>
+			
+		<% end %>
+	<% end %>	

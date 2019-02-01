@@ -1,0 +1,25 @@
+<% provide(:title, "Cursos") %>
+        <% if current_user_tipo == "administrador" %>
+            <%= link_to 'Novo Curso', new_curso_path %>
+        <% end %>
+			
+	<% @cursos.each do |curso| %>
+            <div class="card mdl-card mdl-cell--4-col mdl-cel--4-col-tablet mdl-shadow--2dp">
+                <%= image_tag 'pm.jpg', :class => "card-img-top" %>
+                <div class="card-block">
+                    <h4 class="card-title"><%= curso.nome%></h4>
+                    <p class="card-text"><%= raw(curso.descricao)%></p>
+                    
+                    <div style="font-size: xx-small">compartilhe:</div>
+                    
+                    <div class="float-left">
+                        <%= social_share_button_tag(curso.nome, :url => "www.ddconcursos.com.br"+curso_path(curso)) %>
+                    </div>
+                    
+                    <%= link_to 'Saiba mais', curso_path(curso), :class => "btn btn-primary"%>
+                    <% if current_user_tipo == "administrador" %>
+                        <%= link_to 'Editar', edit_curso_path(curso) %>
+                    <% end %>
+                </div>
+            </div>		
+	<% end %>

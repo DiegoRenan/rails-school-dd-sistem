@@ -1,0 +1,78 @@
+<div id="bootstrap-touch-slider" class="carousel bs-slider fade  control-round indicators-line" data-ride="carousel" data-pause="hover" data-interval="8000" >
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#bootstrap-touch-slider" data-slide-to="0" class="active"></li>
+        <li data-target="#bootstrap-touch-slider" data-slide-to="1"></li>
+        <li data-target="#bootstrap-touch-slider" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper For Slides -->
+    <div class="carousel-inner carousel-zoom" role="listbox">
+        <!-- Third Slide -->
+        <div class="item active">
+            <!-- Slide Background -->
+            <%= image_tag 'banner/item22.jpg', width: "500px", class:"slide-image" %>
+            <div class="bs-slider-overlay"></div>
+            <div class="container">
+                <div class="row">
+                    <!-- Slide Text Layer -->
+                    <div class="slide-text slide_style_left">
+                        <h1 data-animation="animated zoomInRight">D&D </h1>
+                        <p data-animation="animated fadeInLeft"> Rede preparatória para concursos.</p>
+                        <a href="#" target="_blank" class="btn btn-default" data-animation="animated fadeInLeft">Conheça Nossos Cursos</a>
+                        <a href="#" target="_blank"  class="btn btn-primary" data-animation="animated fadeInRight">Entre em contato</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- End of Slide -->
+
+        <!-- Second Slide -->
+        <div class="item">
+            <!-- Slide Background -->
+            <%= image_tag 'banner/item33.jpg',  class:"slide-image" %>
+            <div class="bs-slider-overlay"></div>
+            <!-- Slide Text Layer -->
+            <div class="slide-text slide_style_center">
+                <p data-animation="animated zoomInRight">Estude com a melhor equipe de professores</p>
+                <p data-animation="animated lightSpeedIn">Cursos focados nas carreiras policiais</p>
+                <p data-animation="animated zoomInRight">Aulas 100% presenciais</p>
+                <p data-animation="animated lightSpeedIn">Apostilas</p>
+            </div>
+        </div>
+        <!-- End of Slide -->
+            
+        <!-- Third Slide -->
+        <div class="item">
+            <!-- Slide Background -->
+            <%= image_tag 'banner/item3.jpg',  class:"slide-image" %>
+            <div class="bs-slider-overlay"></div>
+            <!-- Slide Text Layer -->
+            <div class="slide-text slide_style_right">
+                <h1 data-animation="animated zoomInLeft">D&D </h1>
+                <h1 data-animation="animated fadeInRight">aprova você</h1>
+                <br/><h4  data-animation="animated fadeInLeft">Siga nossas midías</h4>
+                <a href="#" data-animation="animated fadeInRight"><%= image_tag 'banner/facebook-icon.png',  class:"slide-image" %></a>
+                <a href="#" data-animation="animated fadeInRight"><%= image_tag 'banner/instagram-icon.png', class:"slide-image" %></a>
+            </div>
+        </div>
+        
+        <!-- End of Slide -->
+    </div><!-- End of Wrapper For Slides -->
+
+    <!-- Left Control -->
+    <a class="left carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="prev">
+        <span class="fa fa-angle-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+
+    <!-- Right Control -->
+    <a class="right carousel-control" href="#bootstrap-touch-slider" role="button" data-slide="next">
+        <span class="fa fa-angle-right" aria-hidden="true"></span></span>
+        <span class="sr-only">Next</span>
+    </a>
+    
+
+</div>

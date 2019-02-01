@@ -1,0 +1,23 @@
+<%= form_for (@categoria) do |f| %>
+	<% if @categoria.errors.any? %>
+		<div id="errors_explanation">
+			<h2><%= pluralize(@categoria.errors.count, "error")%> categorias impedidos de serem salvos</h2>
+			<ul>
+				<%= @categoria.errors.messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	
+	<p>
+		<%= f.label :categoria %><sup style="color:red">*</sup><br>
+		<%= f.text_field :categoria, class: 'form-control' %>
+	</p>
+	
+	<p>
+		<%= f.submit "Salvar", class: "btn btn-default"%>
+		<%= link_to "Cancelar", categorias_path%>
+	</p>
+	
+<% end %>

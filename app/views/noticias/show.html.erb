@@ -1,0 +1,10 @@
+<body>
+<% provide(:title, @noticia.titulo) %>
+	<%if logged_in? and current_user_tipo == "administrador"%>
+            <%= link_to 'Editar', edit_noticia_path(@noticia)%>
+            <%= link_to 'Deletar', noticia_path(@noticia),
+                                        method: :delete,
+                                        data: { confirm: 'Deseja deletar a alternativa?' } %>
+	<% end %>
+        <div class="news_date">Created at: <%= @noticia.created_at.strftime("%d/%m/%Y")%></div>
+        <%= render 'show' %>

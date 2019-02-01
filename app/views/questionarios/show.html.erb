@@ -1,0 +1,33 @@
+<% provide(:title, @questionario.titulo) %>
+<% if current_user_tipo == "administrador" %>
+    <%= link_to 'Nova Questão', new_questao_path(:questionario_id => @questionario.id) %>
+<% end %>
+                        
+<% if !@questionario.questoes.empty?%>
+                    
+                    <div id="questoes-inicio">
+
+                        <h6><%=@questionario.feedback%></h6>
+                            <h6> Escolha o Assunto: </h6>
+                            <span class="input-group" style="margin:0 auto">
+                              
+                                <%= link_to "Todas", {:controller => 'questoes', :action=> "show", :id => Questao.first, :db => @questionario.id, :categoria => "todas"}, :class => "btn btn-default"%>
+                                <%Categoria.all.order(:categoria).each do |categoria| %>
+                                    
+                                    <% if !categoria.questoes.empty? %>
+                                    
+                                        <% @questao = Questao.get_questao_by_categoria(categoria.id).first %>
+
+                                        <%= link_to categoria.categoria, {:controller => 'questoes', :action=> "show", 
+                                        :categoria => categoria.id, :id => @questao.id, :db => @questionario.id}, :class => "btn btn-default"%>
+                                    
+                                    <% end %>
+                                    
+                                <% end %>
+
+                            </span>
+
+                    
+                    </div>
+                
+<% end %>

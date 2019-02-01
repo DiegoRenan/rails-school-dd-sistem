@@ -1,0 +1,89 @@
+<% provide(:title, "Questões") %>
+
+<script>
+    simulado();
+</script>
+        <% if current_user_tipo == "administrador" %>
+                    <%= link_to 'Nova alternativa', new_alternativa_path(:questao_id => @questao.id) %> |
+                    <%= link_to 'Nova Questão', new_questao_path(:questionario_id => @db.id) %>
+                    <div style="float:right">
+                            <%= link_to 'Editar', edit_questao_path(@questao) %>
+                            <%= link_to 'Deletar', [@questao.questionario, @questao],
+                                                    method: :delete,
+                                                    data: { confirm: 'Tem certeza?' } %>
+                    </div>
+        <% end %>
+        
+        
+        *click na(s) resposta(s) correta.
+                    
+        <div class="card mdl-card mdl-cell--12-col mdl-cel--12-col-tablet mdl-shadow--2dp" style="margin: 0 auto">
+            
+            <div class="card-block">
+                   
+                    <div class="card-block card-questao">
+                      
+                            <p>
+                                <%= raw(@questao.questao) %>
+                            <p>
+                             
+                                <%= image_tag 'certo.png', :class => "image-answer", :id => "ans-right", :style => "visibility: hidden"%>
+                                <%= image_tag 'errado.png', :class => "image-answer", :id => "ans-wrong", :style => "visibility: hidden" %>
+			<div class="card-text">
+                            
+                            <ol type="a" class="simulado">
+                            
+                                
+                                <%if @questao.alternativas.where("qualidade = true").count > 1%>
+                                    <div class="simulado-select">
+                                        <% @questao.alternativas.shuffle.each do |alternativa| %>
+                                            <li id="<%=alternativa.id%>" name="<%=@questao.id%>">
+                                                <%= raw(alternativa.alternativa)%>
+                                                <% if current_user_tipo == "administrador" %>
+                                                   <p>
+                                                        <%= link_to 'Show', alternativa_path(alternativa.id) %>|
+                                                        <%= link_to 'Editar', edit_alternativa_path(alternativa) %>
+                                                   </p>
+                                                <% end %>
+                                            </li>
+                                            
+                                        <% end %>
+                                    </div>
+                                <% else %>
+                                    <div class="simulado-radio">
+                                        <% @questao.alternativas.shuffle.each do |alternativa| %>
+                                            <li id="<%=alternativa.id%>" name="<%=@questao.id%>">
+                                                <%= raw(alternativa.alternativa)%>
+                                                <% if current_user_tipo == "administrador" %>
+                                                   <p>
+                                                        <%= link_to 'Show', alternativa_path(alternativa.id) %>|
+                                                        <%= link_to 'Editar', edit_alternativa_path(alternativa) %>
+                                                   </p>
+                                                <% end %>
+                                            </li>
+                                        <% end %>
+                                    </div>
+                                <% end %>
+                            </ol>
+
+                                
+                        </div>
+                        
+                    </div>
+                    <center>
+                        <button type="button" class="btn btn-success btn-answer btn-sm" onClick="responderSimulado(<%=@answer%>)" 
+                        id="btn-responder">Responder</button>
+                        
+                        <button type="button" class="btn btn-default btn-answer" onClick="showAnswer(<%=@answer%>)" 
+                        id="btn-ver-resposta" disabled>Ver Reposta</button>
+                        
+                        <% if !@questao_next.nil? %>
+                            <%= link_to "Próxima >", questao_path(@questao_next, :categoria => @categoria, :db => @db.id), :class => "btn btn-primary" %>
+                        <% else %>
+                            <p style="color:green">Teste finalizado!</p>
+                        <%end%>
+                    <center>
+                    </div>
+            </div>
+            <%= link_to "Voltar", questionarios_path, :class => "float-right" %>
+        </div>

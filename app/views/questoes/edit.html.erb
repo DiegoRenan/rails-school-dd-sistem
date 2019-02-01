@@ -1,0 +1,47 @@
+<% provide(:title, "Banco de Questões") %>
+<script>
+ $('.summernote').summernote();
+</script>
+	
+	<div class="content">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <%= form_for(@questao) do |f| %>
+                        <p>
+                                <%= f.label :questao %><sup style="color:red">*</sup><br>
+                                <%= f.text_area :questao, :as => :summernote, :class=> "summernote form-control" %>
+                        </p>
+                        <p>
+                                <%= f.label :feedback %><br>
+                                <%= f.text_area :feedback, :as => :summernote, :class=> "summernote form-control" %>
+                        </p>
+                        <p>
+                                <%= f.label :valor %><br>
+                                <%= f.number_field :valor, class: 'form-control' %>
+                        </p>
+                        <p>
+                                <%= f.label :penalidade %><br>
+                                <%= f.number_field :penalidade, class: 'form-control' %>
+                        </p>
+                                <div class="field panel-body">
+                                        <%= f.label "Selecione a Categoria" %><sup style="color:red">*</sup><br />
+                                                <%= f.collection_check_boxes :categoria_ids, Categoria.all, :id, :categoria do |b| %>
+                                                        <div class="collection-check-box">
+                                                                <table class="table">
+                                                                        <tbody>
+                                                                                <tr>						
+                                                                                                <td><%= b.check_box %></td>
+                                                                                                <td><%= b.label %></td>
+                                                                                </tr>
+                                                                        </tbody>
+                                                                </table>
+                                                        </div>
+                                        <% end %>
+                                </div>
+                        <p>
+                                <%= f.submit 'Salvar', class: "btn btn-default" %>
+                        </p>
+                    <% end %>
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,6 @@
+<% if logged_in? %>
+    <% if @user[:tipo] == "administrador" %>
+        <h4><center>Área do Adminstrador</center></h4>
+        <%= render 'shared/adm_sidemenu' %>
+    <% end %>
+<% end %>

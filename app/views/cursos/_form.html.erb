@@ -1,0 +1,39 @@
+<script>
+ $('.summernote').summernote();
+</script>
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <%= form_for (@curso) do |f| %>
+            <% if @curso.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@curso.erros.count, "error")%> cursos impedidos de serem salvos:</h2>
+			<ul>
+				<%= @curso.errors.full_messages.each do |msg|%>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+            <% end %>
+            
+            <p>
+                    <%= f.label :nome %><sup style="color:red">*</sup><br>
+                    <%= f.text_field :nome, class: 'form-control' %>
+            </p>
+            
+            <p>
+                    <%= f.label :descricao %><sup style="color:red">*</sup><br>
+                    <%= f.text_area :descricao, :as => :summernote , :class => "summernote" %>
+            </p>
+            
+            <p>
+                    <%= f.label :duracao %><sup style="color:red">*</sup><br>
+                    <%= f.text_field :duracao, class: 'form-control' %>
+            </p>
+            
+            <p>
+                    <%= f.submit "Salvar", class: "btn btn-default"%>
+            </p>
+        <% end %>
+    </div>
+</div>

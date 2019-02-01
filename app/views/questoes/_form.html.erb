@@ -1,0 +1,53 @@
+<script>
+ $('.summernote').summernote();
+</script>
+
+<div class="panel panel-default">
+    
+    <div class="panel-body">
+        
+        <%= form_for([@questionario, @questionario.questoes.build]) do |f| %>
+            <%= render 'questoes/error_messages'%>
+            
+            <p>
+                <%= f.label :questao %><sup style="color:red">*</sup><br>
+                <%= f.text_area :questao, :as => :summernote, :class=> "summernote form-control" %>
+            </p>
+            
+            <p>
+                <%= f.label :feedback %><br>
+                <%= f.text_area :feedback, :as => :summernote, :class=> "summernote form-control" %>
+            </p>
+            
+       
+                <%= f.label :valor %><br>
+                <%= f.number_field :valor, class: 'form-control' %>
+           
+           
+                <%= f.label :penalidade %><br>
+                <%= f.number_field :penalidade, class: 'form-control' %>
+        
+            
+            <fieldset class="form-group row">
+                        
+                <%= f.label "Selecione a Categoria", :class => "col-form-legend col-sm-3"%><sup style="color:red">*</sup><br />
+                
+                <%= f.collection_check_boxes :categoria_ids, Categoria.all, :id, :categoria do |b| %>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <%= b.label(class: "form-check-label", 'data-value': b.value) { b.check_box(class:"form-check-input") + b.text }%>
+                        </div>
+                    </div>
+                <% end %>
+                
+            </fieldset>
+            
+            <p>
+                <%= f.submit 'Salvar', class: "btn btn-default" %>
+            </p>
+        <% end %>
+    </div>
+    
+    
+</div>
+<%= link_to "Voltar", questionario_path(@questionario)%>

@@ -1,0 +1,43 @@
+<p>
+  <strong>Questao:</strong>
+   <%= questao.questao %>
+</p>
+
+<p>
+<strong>Feedback:</strong>
+	<%= questao.feedback %>
+</p>
+    
+<p>
+	<strong>Valor:</strong>
+    <%= questao.valor %>
+</p>
+ 
+<p>
+    <strong>Feedback:</strong>
+    <%= questao.penalidade %>
+</p>
+
+<p>
+  <%= link_to 'Deletar questao', [questao.questionario, questao],
+               method: :delete,
+               data: { confirm: 'Tem certeza?' } %>
+</p>
+
+<h2>Alternativas</h2>
+<%= render questao.alternativas %>
+
+<h2>Add Alternativas:</h2>
+<%= form_for([questao, questao.alternativas.build]) do |f| %>
+  <p>
+    <%= f.label :alternativa %><sup style="color:red">*</sup><br>
+    <%= f.text_area :alternativa, class: 'form-control'  %>
+  </p>
+  <p>
+    <%= f.label :qualidade %><sup style="color:red">*</sup><br>
+    <%= f.text_field :qualidade, class: 'form-control' %>
+  </p>
+  <p>
+    <%= f.submit 'salvar' ,class: "btn btn-default"%> %>
+  </p>
+<% end %>

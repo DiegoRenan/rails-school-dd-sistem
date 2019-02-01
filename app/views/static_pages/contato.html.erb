@@ -1,0 +1,83 @@
+<% provide(:title, "Contato") %>
+
+<form name="contatoform" autocomplete="on" action="#" method="post" >
+		
+		<div class="form-group">
+			<label for="InputName">Nome</label>
+			<input type="text" id="nome" name="nome" class="form-control" aria-describedby="NameHelp" placeholder="Digite seu nome" required>
+			<small id="emailHelp" class="form-text text-muted">*Preenchimento do obrigatório</small>
+		</div>
+
+		<div class="form-group">
+			<label for="InputEmail">Endereço de Email</label>
+			<input type="email" id="email" name="email" class="form-control" aria-describedby="emailHelp" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" placeholder="Digite seu email" required>
+			<small id="emailHelp" class="form-text text-muted">*Preenchimento do obrigatório</small>
+		</div>
+		 
+		<div class="form-group" required>
+			<label for="SelectSubject">Selecione o Assunto</label>
+			<select id="assunto" name="assunto" class="form-control">
+			<option>Matrícula</option>
+			<option>Adquirir material didático</option>
+			<option>Informações Gerais</option>
+			<option>Crítica e sujestões</option>
+			<option>Outros</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<label for="TextareaMenssage">Mensagem</label>
+			<textarea id="mensagem" name="mensagem" class="form-control" rows="8"required ></textarea>
+		</div>
+		<div id="status"></div>
+
+		<input type="button" onclick="formSubmit()" value="Enviar" class="btn btn-primary" style="float: right"/>
+		
+</form>
+
+
+	<h3><span class="badge badge-default">Nossos Endereços</h3>
+
+	<div class="mdl-grid">
+	<address>
+	<h4>Água Boa - MT</h4>
+	Av. Planalto, esquina com Av. Universitária - Setor Cidade Universitária
+	<br />Faculdades Cathedral
+	</address>
+	</div>
+
+
+	<div class="mdl-grid">
+	<address>
+	<h4>Barra do Garças - MT</h4>
+	Av. Antônio Francisco Cortes, 2.501
+	Setor Cidade Universitária - CEP 78600-000
+	<br />Faculdades Cathedral
+	</address>
+	</div>
+
+
+	<div class="mdl-grid">
+	<address>
+	<h4>Barra do Garças - MT</h4>
+	Rua dos Garimpeiros, n 810 - Quadra 58 - Lote 09 - Centro
+	- CEP 78600-000
+	<br />Faculdades Anhanguera
+	</address>
+	</div>
+
+
+	<div class="mdl-grid">
+	<address>
+	<h4>Nova Xavantina - MT</h4>
+	</address>
+	</div>
+
+	<div class="mdl-grid">
+	<address>
+	<h4>Fones:</h4>
+	(66) 99203-8164 /
+	(66) 98442-9291
+	</address>
+	</div>
+

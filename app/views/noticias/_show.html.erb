@@ -1,0 +1,48 @@
+				<div style="font-size: xx-small">compartilhe:</div>
+				<p class="float-left">
+                                        <%= social_share_button_tag(@noticia.titulo, :url => "http://www.ddconcursos.com.br"+noticia_path(@noticia), :title => @noticia.titulo) %>
+                                </p>
+				
+				<p>
+					<%= raw(@noticia.texto) %>
+				</p>
+				<% if !@noticia.edital.empty? %>
+					<p>
+					  <strong>Região:</strong>
+					  <%= @noticia.uf %>
+					</p>
+
+					<p>
+					  <strong>cargo:</strong>
+					  <%= @noticia.cargo %>
+					</p>
+					
+					<p>
+					  <strong>Vaga(s):</strong>
+					  <%= @noticia.vaga %>
+					</p>
+
+					<p>
+					  <strong>Salario:</strong>
+					  <%= @noticia.salario %>
+					</p>
+
+					<p>
+					  <strong>Banca:</strong>
+					  <%= @noticia.banca %>
+					</p>
+                                        <% if !@noticia.inscricao.empty? %>
+                                            <p>
+                                                <strong>Inscrição:</strong>
+                                                <%= link_to "click aqui", add_url_protocol(@noticia.inscricao), target: :_blank  %>
+                                            </p>
+                                        <% end %>
+                                        <% if !@noticia.edital.empty? %>
+                                            <p>
+                                                <strong>Edital de abertura:</strong>
+                                                <%= link_to "click aqui", add_url_protocol(@noticia.edital), target: :_blank  %>
+                                            </p>
+                                        <% end %>
+				<% end %>
+
+		<%= link_to 'Votar', noticias_path %>

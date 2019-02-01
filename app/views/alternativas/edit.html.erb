@@ -1,0 +1,27 @@
+<% provide(:title, "Alternativas") %>
+		<div class="panel panel-default">
+			<div class="panel-body">
+		
+				<%= form_for(@alternativa) do |f| %>
+				  <p>
+					<%= f.label :alternativa %><br>
+					<%= f.text_area :alternativa, :as => :summernote, :class=> "summernote form-control" %>
+				  </p>
+				  
+				  <p>
+					<table class="table">
+						<tr>	
+							<td><%= f.radio_button(:qualidade, "false", :checked => true) %></td><td> <%= f.label(:false, "Falso") %></td>
+							<td><%= f.radio_button(:qualidade, "true") %></td><td> <%= f.label(:true, "Verdadeiro") %></td>
+						</tr>
+					</table>
+				  </p>
+				  
+				  <p>
+					<%= f.submit 'salvar'%>
+				  </p>
+				<% end %>
+			</div>
+		</div>
+		<%= link_to "Voltar", questao_path(@alternativa.questao)%>
+

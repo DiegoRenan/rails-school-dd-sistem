@@ -1,0 +1,16 @@
+<% provide(:title, "Professores") %>
+        <% if current_user_tipo == "administrador" %>
+            <%= link_to 'Novo professor', new_professor_path %>
+        <% end %>
+
+        <% @professores.each do |professor| %>
+            <div class="mdl-cell mdl-cell--12-col mdl-cel--12-col-tablet">
+                <h4><%= professor.nome %></h4>
+                <h6><%= professor.formacao %></h6>
+                <p><%= raw(professor.curriculo) %></p>
+                <% if current_user_tipo == "administrador" %>
+                    <%= link_to 'Editar', edit_professor_path(professor) %>
+                    <%= link_to 'Show', professor_path(professor) %>
+                <% end %>
+            </div>
+        <% end %>

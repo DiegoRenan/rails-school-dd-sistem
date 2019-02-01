@@ -1,0 +1,26 @@
+<% provide(:title, "Alternativa") %>
+<div class="container">
+	<h3><span class="badge badge-default"><center>Alternativa</center></span></h3>
+	
+	<%= render 'shared/adm_sidemenu' %>
+	
+	<div class="content">
+                <%= link_to "Voltar", controller: "questoes", action: "show", id: @alternativa.questao_id%>
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<p>
+					<strong>Alternativa:</strong>
+					<%= raw(@alternativa.alternativa) %>
+				</p>
+				<p>
+					<strong>Status:</strong>
+				   <%= @alternativa.qualidade %>
+				</p>
+			</div>
+		</div>
+		<%= link_to 'Editar', edit_alternativa_path(@alternativa)%>
+		<td><%= link_to 'Deletar', alternativa_path(@alternativa),
+				method: :delete,
+				data: { confirm: 'Deseja deletar a alternativa?' } %>
+	</div>
+</div>
